@@ -6,6 +6,7 @@ import { NodeTable } from './components/NodeTable';
 import { DetailPanel } from './components/DetailPanel';
 import { Legend } from './components/Legend';
 import { Controls } from './components/Controls';
+import { Footer } from './components/Footer';
 import { parseProfileCsv } from './lib/csv/parseProfileCsv';
 import { buildGraph } from './lib/graph/buildGraph';
 import { aggregateByStep } from './lib/graph/aggregateByStep';
@@ -70,8 +71,11 @@ function App() {
 
   if (!graph) {
     return (
-      <div className="mx-auto max-w-2xl">
-        <CsvInput onSubmit={handleSubmit} errors={errors} warnings={warnings} />
+      <div className="flex h-full flex-col">
+        <div className="mx-auto w-full max-w-2xl flex-1 overflow-auto">
+          <CsvInput onSubmit={handleSubmit} errors={errors} warnings={warnings} />
+        </div>
+        <Footer />
       </div>
     );
   }
@@ -144,6 +148,8 @@ function App() {
           </div>
         )}
       </div>
+
+      <Footer />
     </div>
   );
 }
