@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/*
+ * React Flow's zoom/fit-view controls only pick up its dark-theme CSS
+ * variables when a `.dark` class is applied to `.react-flow`, which we
+ * never do. Left alone, `color: inherit` on the button icons picks up
+ * the light text color our dark color-scheme gives the page by default,
+ * while the widget's own background stays its light-mode `#fefefe` —
+ * i.e. light icon on a near-white background. Force a fixed dark
+ * widget with light text so it's always readable, regardless of the
+ * viewer's light/dark preference.
+ */
+.react-flow__controls-button {
+  --xy-controls-button-background-color: #27272a;
+  --xy-controls-button-background-color-hover: #3f3f46;
+  --xy-controls-button-color: #f4f4f5;
+  --xy-controls-button-color-hover: #ffffff;
+  --xy-controls-button-border-color: #52525b;
+}
